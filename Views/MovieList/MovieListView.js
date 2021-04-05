@@ -25,7 +25,6 @@ const MovieListView = (props) => {
 
     useEffect(() => {
         console.log("useeffect method called")
-        // isLoading = false
         dispatch (MovieListViewModel.GetList(page,region))
     },[page])
 
@@ -55,7 +54,7 @@ const MovieListView = (props) => {
             <View styles = {styles.maincontainerStyle}>
             {
                 (isLoading) ?
-                ( BottomView)
+                (BottomView)
                 :
                 (
                     <FlatList
@@ -68,8 +67,7 @@ const MovieListView = (props) => {
                         name = {data.item.title}
                         date = {data.item.release_date}
                         vote_count = {data.item.vote_count}
-                        rate_text = {data.item.vote_average}
-                        />}
+                        rate_text = {data.item.vote_average}/>}
                         initialNumToRender={8}
                         maxToRenderPerBatch={2}
                         onEndReachedThreshold={0.1}
@@ -82,7 +80,7 @@ const MovieListView = (props) => {
                                   isLoading = false;
                             }
                        }}
-                        />
+                    />
                 )
             }
             </View>

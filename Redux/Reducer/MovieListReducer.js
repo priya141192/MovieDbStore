@@ -7,18 +7,11 @@ const initalState = {
     Errordata : {}
 }
 
-// const reverse = (MovieListData) => ({
-//     for (let num of reverse(nums)) {
-//         // ...
-//       }
-//   })
-
 const MovieListReducer = (state = initalState,action) =>{
     switch(action.type)
     {
         case Success : 
         //  console.log("Reducer success called" + JSON.stringify(action.data.results,null,2))
-        console.log("state.MovieListData.count" + state.MovieListData.length)
         return {
             ...state,
             MovieListData : [...state.MovieListData,...action.data],

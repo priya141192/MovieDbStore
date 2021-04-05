@@ -20,18 +20,6 @@ const MovieListService =
         } catch (error) {
             console.log(error.message);
         }
-
-// let url = (Base_Url+'movie/'+id+'/lists?api_key='+Api_Key+'&language=en-US&page='+page)
-// const requestOptions = {
-//     method: 'GET',
-//     headers: {}
-// };
-// console.log(url)
-// return fetch(url, requestOptions)
-// .then(response => response.json())
-// .then(data => {
-//     return data
-// });
     }
  }
 

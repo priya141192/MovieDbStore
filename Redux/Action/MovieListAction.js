@@ -13,7 +13,7 @@ export const GetAllMovies = (page, region) =>
 
 const AsyncGetAllMovieList = (page, region) => async dispatch =>
 {
-    console.log('AsyncGetAllMovieList action called'+" page is " +page+" region is "+region)
+    // console.log('AsyncGetAllMovieList action called'+" page is " +page+" region is "+region)
      MovieListService.GetMovieList(page, region)
     .then(
         data => {
