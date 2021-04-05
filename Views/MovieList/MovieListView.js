@@ -59,8 +59,8 @@ const MovieListView = (props) => {
                 :
                 (
                     <FlatList
-                    data={movieList.results}
-                    keyExtractor={item => item.id.toString()}
+                    data={movieList}
+                    keyExtractor={(item, index) => String(index)}
                     renderItem={data => 
                     <Customitem
                         imgsource = {{uri : Image_Url + data.item.poster_path}}

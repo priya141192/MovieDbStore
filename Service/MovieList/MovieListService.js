@@ -13,7 +13,8 @@ const MovieListService =
             const { data } = response;
             if (data != '' && data != undefined)
             {
-                return data;
+                // console.log(JSON.stringify(data.results,null,2));
+                return data.results;
             }
             
         } catch (error) {
