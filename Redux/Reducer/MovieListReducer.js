@@ -1,7 +1,7 @@
 import {Success,Loading,Failed} from '../../Redux/Type/MovieListType'
 
 const initalState = {
-    MovieListData : {},
+    MovieListData : [],
     IsSuccessfull : false,
     IsLoading : false,
     Errordata : {}
@@ -11,7 +11,7 @@ const MovieListReducer = (state = initalState,action) =>{
     switch(action.type)
     {
         case Success : 
-        // console.log("Reducer success called" + JSON.stringify(action.data,null,2))
+        //  console.log("Reducer success called" + JSON.stringify(action.data.results,null,2))
         return {
             ...state,
             MovieListData : action.data,

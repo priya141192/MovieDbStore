@@ -11,10 +11,8 @@ const MovieListService =
             // console.log(url);
             const response = await axios.get(url);
             const { data } = response;
-            // console.log("movie list" + data);
             if (data != '' && data != undefined)
             {
-                // console.log(data);
                 return data;
             }
             
