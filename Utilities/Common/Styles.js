@@ -126,5 +126,56 @@ export const styles = StyleSheet.create({
         marginTop: 40,
         borderRadius: 2,
         backgroundColor: `#ff5722`
+    },
+    detail_img_style : {
+        height : 200 ,
+        resizeMode : 'stretch',
+        borderRadius : 5,
+        margin : 10,
+        marginLeft : 20,
+        marginRight : 20,
+    },
+    movie_detail_style : {
+        justifyContent : 'center',
+    },
+    movie_detail_overlap_view_style : {
+        flexDirection: 'row', 
+        alignItems: 'flex-end',
+        paddingTop : 80,  
+        marginLeft: 20, 
+    },
+    movie_detail_overlap_img_style : {
+        position:'absolute',
+        height : 190,
+        width : 150,
+        margin : 10,
+        resizeMode : 'stretch',
+        borderColor : 'white',
+        borderWidth: 1,
+        flex : 1,
+    },
+    rounded_img : {
+        height : 80,
+        width : 80,
+        borderRadius : 80/2,
+    },
+    contenttextstyle : {
+        fontSize : 15,
+        color : 'black',
+        margin : 5,
+        fontWeight : 'normal',
+    },
+    headertextstyle : {
+        fontSize : 15,
+        color : 'black',
+        margin : 5,
+        fontWeight : 'bold',
+        padding : 10
+    },
+    featurestextstyle : {
+        color: '#9E9C9E', 
+        marginLeft: 15, 
+        fontSize: 12, 
+    },
     }
-})
+)

@@ -84,7 +84,6 @@ const MovieListView = (props) => {
                 )
             }
             </View>
-        
         </SafeAreaView>
     );
 }
