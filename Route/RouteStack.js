@@ -7,6 +7,7 @@ import SearchHeader from 'react-native-search-header';
 import {styles} from "../Utilities/Common/Styles";
 import * as ImgConstants from '../Utilities/Constants/ImageConstants'
 import MovieDetailView from '../Views/MovieDetail/MovieDetailView';
+import ViewConstants from '../Utilities/Constants/ViewConstants';
 
 const RouteStack = () => 
 {
@@ -14,7 +15,7 @@ const RouteStack = () =>
         return (
             <NavigationContainer>
             <Stack.Navigator 
-            initialRouteName="MovieDetailView"
+            initialRouteName="MovieListView"
             screenOptions = {
                 {
                     headerShown : true,
@@ -31,8 +32,8 @@ const RouteStack = () =>
                     
                 }
             }>
-            {/* <Stack.Screen
-            name = "Movie List"
+            <Stack.Screen
+            name = {ViewConstants.MovieList}
             component = {MovieListView}
             options = {{
                 headerRight: () => (
@@ -41,9 +42,9 @@ const RouteStack = () =>
                     </TouchableOpacity>
                 )
             }}>
-            </Stack.Screen> */}
+            </Stack.Screen>
             <Stack.Screen
-            name = "Movie Detail"
+            name = {ViewConstants.MovieDetail}
             component = {MovieDetailView}>
             </Stack.Screen>
             </Stack.Navigator>

@@ -5,7 +5,7 @@ const MovieListService =
 {
     GetMovieList : async(page,region) =>
    {
-       console.log('service called')
+    //    console.log('service called')
        try {
             let url = Base_Url + 'movie/now_playing?api_key=' + Api_Key + '&language=en-US&page=' + page+'&region='
             // console.log(url);

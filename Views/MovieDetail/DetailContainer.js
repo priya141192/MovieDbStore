@@ -1,6 +1,5 @@
-import  React, { useEffect,useState } from "react";
-import { View,ActivityIndicator,FlatList,SafeAreaView,Animated ,Text} from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import  React, { useEffect } from "react";
+import { View,FlatList,SafeAreaView,Animated ,Text} from "react-native";
 import { styles } from "../../Utilities/Common/Styles";
 import CastListItemView from "./CastListItemView";
 
@@ -34,20 +33,17 @@ const DetailContainer = (props) => {
           uri: 'https://picsum.photos/id/1008/200',
         },
       ];
+
+      useEffect(() => {
+        
+      })
       
     return(
         <SafeAreaView>
-            <ScrollView
-            contentInsetAdjustmentBehavior = 'automatic'
-            showsVerticalScrollIndicator = {false}
-            style = {{backgroundColor :'#e7e7e7'}}>
-                 <View style = {{backgroundColor : 'white'}}>
+                {/* Cast Section */}
+                <View style = {{backgroundColor : 'white',flex : 1}}>
                     <Text style = {styles.headertextstyle}>Cast</Text>
-                    <View
-                        style={{
-                            borderBottomColor: 'black',
-                            borderBottomWidth: 1,
-                        }}/>
+                    <View style={styles.separatorstyle}/>
                     <FlatList 
                     showsHorizontalScrollIndicator = {false}
                     horizontal = {true}
@@ -64,14 +60,11 @@ const DetailContainer = (props) => {
                     onEndReachedThreshold={0.1}>
                     </FlatList>
                 </View>
-
-                <View style = {{backgroundColor : 'white',marginTop : 10}}>
+                
+                {/* Crew Section */}
+                <View style = {{backgroundColor : 'white',marginTop : 10,flex:1}}>
                     <Text style = {styles.headertextstyle}>Crew</Text>
-                    <View
-                        style={{
-                            borderBottomColor: 'black',
-                            borderBottomWidth: 1,
-                        }}/>
+                    <View style={styles.separatorstyle}/>
                     <FlatList 
                     horizontal = {true}
                     showsHorizontalScrollIndicator = {false}
@@ -87,9 +80,6 @@ const DetailContainer = (props) => {
                     onEndReachedThreshold={0.1}>
                     </FlatList>
                 </View>
-        
-            </ScrollView>
-           
         </SafeAreaView>
     )
 }

@@ -1,13 +1,13 @@
 import React from "react";
-import { Image,Text, View,TouchableOpacity,SafeAreaView } from "react-native";
+import { Image,Text, View,TouchableOpacity } from "react-native";
 import LabelView from "../../Helper/labelview";
 import {styles} from "../../Utilities/Common/Styles";
 import * as ImgConstants from '../../Utilities/Constants/ImageConstants'
 
 const MovieListItemView = (props) =>{
     return(
-        <SafeAreaView>
-            <View style = {styles.maincontainerStyle}>
+        <TouchableOpacity onPress = {() => {props.onPress(props.id)}}>
+             <View style = {styles.maincontainerStyle}>
                 <View style = {styles.image_btn_itemStyle} >
                     <Image style = {styles.itemimgStyle} source={props.imgsource}/>
                     <View style={{flex : 1,marginLeft : 10,alignContent : 'center',alignSelf:'center',justifyContent:'center'}}>
@@ -26,7 +26,8 @@ const MovieListItemView = (props) =>{
                 </TouchableOpacity>
                 </View>
             </View>
-        </SafeAreaView>
+        
+        </TouchableOpacity>
      )
 }
 

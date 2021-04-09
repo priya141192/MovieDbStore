@@ -19,13 +19,13 @@ const MovieListReducer = (state = initalState,action) =>{
             IsLoading : false
         }
         case Loading : 
-        console.log("Reducer loading called")
+        // console.log("Reducer loading called")
         return {
             ...state,
             IsLoading : true
         }
         case Failed : 
-        console.log("Reducer failed called")
+        // console.log("Reducer failed called")
         return {
             ...state,
             Errordata : action.data,
@@ -33,7 +33,7 @@ const MovieListReducer = (state = initalState,action) =>{
             IsLoading : false,
         }
         default : 
-        console.log("Reducer default called")
+        // console.log("Reducer default called")
         return state
     }
 }

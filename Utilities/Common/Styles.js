@@ -141,18 +141,17 @@ export const styles = StyleSheet.create({
     movie_detail_overlap_view_style : {
         flexDirection: 'row', 
         alignItems: 'flex-end',
-        paddingTop : 80,  
+        paddingTop : 40,  
         marginLeft: 20, 
     },
     movie_detail_overlap_img_style : {
-        position:'absolute',
+        position:'absolute',zIndex :5,
         height : 190,
         width : 150,
         margin : 10,
         resizeMode : 'stretch',
         borderColor : 'white',
         borderWidth: 1,
-        flex : 1,
     },
     rounded_img : {
         height : 80,
@@ -176,6 +175,19 @@ export const styles = StyleSheet.create({
         color: '#9E9C9E', 
         marginLeft: 15, 
         fontSize: 12, 
+        padding : 5
     },
+    separatorstyle : {
+        borderBottomColor: '#e7e7e7',
+        borderBottomWidth: 2,
+    },
+    movienamestyle : {
+        textAlign: 'center',
+        flex:1.5,
+        justifyContent:'center',
+        alignSelf : 'center',
+        fontSize : 25,
+        fontWeight : 'bold'
+    }
     }
 )

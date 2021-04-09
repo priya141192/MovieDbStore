@@ -1,5 +1,5 @@
 import  React, { useEffect,useState } from "react";
-import { View,ActivityIndicator,FlatList,SafeAreaView } from "react-native";
+import { View,ActivityIndicator,FlatList,SafeAreaView, Alert } from "react-native";
 import Customitem from "../../Views/MovieList/MovieListItemView";
 import {styles} from "../../Utilities/Common/Styles"
 import { useDispatch } from "react-redux";
@@ -7,8 +7,10 @@ import { useSelector } from "react-redux";
 import { movieListReducer } from "../../Redux/Reducer/MovieListReducer";
 import MovieListViewModel from '../../ViewModel/MovieList/MovieListViewModel'
 import { Image_Url } from "../../Utilities/Constants/ServiceConstants";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ViewConstants from "../../Utilities/Constants/ViewConstants";
 
-const MovieListView = (props) => {
+const MovieListView = ({route,navigation}) => {
 
     const dispatch = useDispatch()
     const movieList = useSelector(state => state.movieListReducer.MovieListData)
@@ -61,13 +63,19 @@ const MovieListView = (props) => {
                     data={movieList}
                     keyExtractor={(item, index) => String(index)}
                     renderItem={data => 
-                    <Customitem
+                        <Customitem
                         imgsource = {{uri : Image_Url + data.item.poster_path}}
                         btntitle = {'Book Now'}
                         name = {data.item.title}
                         date = {data.item.release_date}
                         vote_count = {data.item.vote_count}
-                        rate_text = {data.item.vote_average}/>}
+                        rate_text = {data.item.vote_average}
+                        onPress = {() => {
+                            console.log("Onpress " + data.item.id)
+                            navigation.navigate (ViewConstants.MovieDetail,{'MovieId' : data.item.id})
+                            // Alert.alert("Movie details page called "+data.item.id)
+                        }}
+                        />}
                         initialNumToRender={8}
                         maxToRenderPerBatch={2}
                         onEndReachedThreshold={0.1}
