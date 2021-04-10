@@ -1,43 +1,27 @@
 import  React, { useEffect } from "react";
 import { View,FlatList,SafeAreaView,Animated ,Text} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import { styles } from "../../Utilities/Common/Styles";
 import CastListItemView from "./CastListItemView";
+import movieDetailReducer from "../../Redux/Reducer/MovieDetailReducer"
+import MovieDetailViewModel from "../../ViewModel/MovieDetails/MovieDetailViewModel";
+import {Image_Url} from "../../Utilities/Constants/ServiceConstants"
 
 const DetailContainer = (props) => {
+  const  MovieId  = props.value
+  const CastAndCrewData = useSelector(state => state.movieDetailReducer.CastandCrewData)
+  const dispatch = useDispatch()
 
-    const mockdata =[
-        {
-          key: '1',
-          text: 'Item text 1',
-          uri: 'https://picsum.photos/id/1/200',
-        },
-        {
-          key: '2',
-          text: 'Item text 2',
-          uri: 'https://picsum.photos/id/10/200',
-        },
-  
-        {
-          key: '3',
-          text: 'Item text 3',
-          uri: 'https://picsum.photos/id/1002/200',
-        },
-        {
-          key: '4',
-          text: 'Item text 4',
-          uri: 'https://picsum.photos/id/1006/200',
-        },
-        {
-          key: '5',
-          text: 'Item text 5',
-          uri: 'https://picsum.photos/id/1008/200',
-        },
-      ];
+  //  useEffect(() => {
+  //     console.log("DetailContainer movieid********" + CastAndCrewData)
+  //   },[])
 
-      useEffect(() => {
-        
-      })
-      
+  useEffect(() => {
+    // console.log("useEffect**********" + JSON.stringify(CastAndCrewData))
+    // console.log("useEffect############" + CastAndCrewData.crew)
+    dispatch(MovieDetailViewModel.GetCastandCrew(MovieId))
+  },[MovieId])
+
     return(
         <SafeAreaView>
                 {/* Cast Section */}
@@ -48,12 +32,12 @@ const DetailContainer = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     horizontal = {true}
                     style = {{backgroundColor : 'white',width : "100%",height : '35%'}}
-                    data = {mockdata}
-                    keyExtractor={(item, index) => String(index)}
+                    data = {CastAndCrewData.cast}
+                    keyExtractor={(item, index) => index.toString()}
                     renderItem = {data => 
                         <CastListItemView
-                        imgsource = {{uri : data.item.uri}}
-                        name = {data.item.text}/>
+                        imgsource = {{uri : Image_Url + data.item.profile_path}}
+                        name = {data.item.name}/>
                     }
                     initialNumToRender={8}
                     maxToRenderPerBatch={2}
@@ -68,18 +52,19 @@ const DetailContainer = (props) => {
                     <FlatList 
                     horizontal = {true}
                     showsHorizontalScrollIndicator = {false}
-                    style = {{backgroundColor : 'white',width : "100%",height : '40%'}}
-                    data = {mockdata}
-                    keyExtractor={(item, index) => String(index)}
+                    style = {{backgroundColor : 'white',width : "100%",height : '35%'}}
+                    data = {CastAndCrewData.crew}
+                    keyExtractor={(item, index) => index.toString()}
                     renderItem = {data => 
                         <CastListItemView
                         imgsource = {{uri : data.item.uri}}
-                        name = {data.item.text}/>}
+                        name = {data.item.name}/>}
                     initialNumToRender={8}
                     maxToRenderPerBatch={2}
                     onEndReachedThreshold={0.1}>
                     </FlatList>
                 </View>
+        
         </SafeAreaView>
     )
 }

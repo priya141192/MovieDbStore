@@ -1,7 +1,8 @@
-import {MovieDetail_Success,MovieDetail_Failed,MovieDetail_Loading} from '../../Redux/Type/MovieDetailType'
+import {MovieDetail_Success,MovieDetail_Failed,MovieDetail_Loading,CastAndCrew_Failed,CastAndCrew_Success} from '../../Redux/Type/MovieDetailType'
 
 const initalState = {
     MovieDetailData : [],
+    CastandCrewData : [],
     IsSuccessfull : false,
     IsLoading : false,
     Errordata : {}
@@ -30,6 +31,20 @@ const MovieDetailReducer = (state = initalState,action) => {
             Errordata : action.data,
             IsSuccessfull : false,
             IsLoading : false,
+        }
+        case CastAndCrew_Success : 
+        return {
+            ...state,
+            CastandCrewData : action.data,
+            IsSuccessfull : true,
+            IsLoading : false
+        }
+        case CastAndCrew_Failed : 
+        return {
+            ...state,
+            Errordata : action.data,
+            IsSuccessfull : false,
+            IsLoading : false
         }
         default : 
         return state

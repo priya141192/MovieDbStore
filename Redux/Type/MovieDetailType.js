@@ -1,3 +1,5 @@
-export const MovieDetail_Success = "SUCCESS"
+export const MovieDetail_Success = "Success"
 export const MovieDetail_Loading = "Loading"
 export const MovieDetail_Failed = "Failed"
+export const CastAndCrew_Success = "CastAndCrew_Success"
+export const CastAndCrew_Failed = "CastAndCrew_Failed"
